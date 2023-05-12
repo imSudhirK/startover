@@ -6,7 +6,7 @@ void reverseArr(int arr[], int size);
 void rotateArrClockwiseByOne(int arr[], int size);
 int kadaneAlgo(int arr[], int size);
 void dutchNationalFlag(int arr[], int size);
-void swap(int* x, int* y);
+void swapArrVals(int arr[], int x, int y);
 
 int main(){
 	int n;
@@ -34,6 +34,7 @@ int main(){
 	// sort array containing only 0s, 1s and 2s
 	int dutchArr[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
 	int s = sizeof(dutchArr)/sizeof(dutchArr[0]);
+	printArr(dutchArr, s);
 	dutchNationalFlag(dutchArr, s);
 	std::cout<<"given dutch arr after sorting:\n";
 	printArr(dutchArr, s);
@@ -77,26 +78,26 @@ int kadaneAlgo(int arr[], int size){
 
 void dutchNationalFlag(int arr[], int size){
 	int lo = 0, md = 0, hi = size-1;
+	// int temp;
 	while(md <= hi){
 		switch(arr[md]){
-		case 2:
-			swap(&arr[md], &arr[hi--]);
-			break;
 		case 0:
-			swap(&arr[md++], &arr[lo++]);
+			swapArrVals(arr, md++, lo++);
 			break;
 		case 1:
 			md++;
 			break;
-
+		case 2:
+			swapArrVals(arr, md, hi--);
+			break;
 		}
 	}
 	return;
 }
 
-void swap(int* x, int* y){
-	int *temp = x;
-	x = y;
-	y = temp;
-	return;	
+void swapArrVals(int arr[], int x, int y){
+	int temp = arr[x];
+	arr[x] = arr[y];
+	arr[y] = temp;
+	return;
 }
