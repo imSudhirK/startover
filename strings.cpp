@@ -7,21 +7,12 @@
 typedef long long int lli;
 typedef std::string string;
 
+// function declarations
 string reverseLtoR(string str, int l, int r);
-
-// Count of substrings having all distinct characters
 lli countSubStrDistChar(string str);
-
-// Check if the given string is shuffled substring of another string
 bool isShuffledSubStr(string A, string B);
-
-// calculate hamming distance between two binary strings
 int hammingDistance(string str1, string str2);
-
-// Check if a Given String is Palindrome
 bool isPalindrome(string str);
-
-// K’th Non-repeating Character
 char kthNonRepeatingChar(string str, int k);
 
 int main(){
@@ -43,7 +34,9 @@ int main(){
     std::cout<<kthNonRepeatingChar(str, 3);
 	return 0;
 }
+// functions definitions starts here
 
+// reverse given string
 string reverseLtoR(string str, int l, int r){
 	while(l < r){
 		char c = str[l];
@@ -54,6 +47,7 @@ string reverseLtoR(string str, int l, int r){
 	return str;
 }
 
+// Count of substrings having all distinct characters
 lli countSubStrDistChar(string str){
 	int size = (int)str.size();
 	lli ans = 0;
@@ -75,6 +69,7 @@ lli countSubStrDistChar(string str){
 	return ans;
 }
 
+// Check if the given string is shuffled substring of another string
 bool isShuffledSubStr(string A, string B){
 	int la = A.length(), lb = B.length();
 	if(la > lb) return false;
@@ -89,6 +84,7 @@ bool isShuffledSubStr(string A, string B){
 	return false;
 }
 
+// calculate hamming distance between two binary strings
 int hammingDistance(string str1, string str2){
 	int hamming = 0;
 	for(int i=0; i < str1.length(); i++){
@@ -98,6 +94,7 @@ int hammingDistance(string str1, string str2){
 	return hamming;
 }
 
+// Check if a Given String is Palindrome
 bool isPalindrome(string str){
 	int i = 0, j = str.size() - 1;
 	while(i < j){
@@ -107,6 +104,7 @@ bool isPalindrome(string str){
 	return true;
 }
 
+// K’th Non-repeating Character
 char kthNonRepeatingChar(string str, int k){
 	std::unordered_map<char, int> umap;
 	for(int i=0; i < str.length(); i++){
@@ -123,6 +121,3 @@ char kthNonRepeatingChar(string str, int k){
 
 	return '\0';
 }
-
-
-
