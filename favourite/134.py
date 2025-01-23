@@ -1,5 +1,5 @@
 # Gas Station
-# https://leetcode.com/problems/gas-station/description/?envType=study-plan-v2&envId=top-interview-150
+# https://leetcode.com/problems/gas-station/description
 
 def canCompleteCircuit(gas, cost):
     num_station = len(gas)
